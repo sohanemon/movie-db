@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
@@ -13,7 +12,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        poppins: 'var(--poppins)'
+        openSans: 'var(--openSans)',
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -38,7 +37,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require('tailwindcss-debug-screens'),
-  ],
+  plugins: [require('tailwindcss-debug-screens')],
 };

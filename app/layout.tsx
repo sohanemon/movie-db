@@ -1,13 +1,12 @@
 import Sidebar from '@/components/sidebar';
 import GlobalCssPriority from '../context/global-css-priority';
 import './globals.css';
-import { Poppins } from 'next/font/google';
+import { Open_Sans } from 'next/font/google';
 import TopBar from '@/components/topbar';
 
-const poppins = Poppins({
+const openSans = Open_Sans({
   subsets: ['latin'],
-  weight: ['300', '100', '400', '200', '500', '600', '700', '800', '900'],
-  variable: '--poppins',
+  variable: '--openSans',
 });
 
 export const metadata = {
@@ -21,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${poppins.className} ${poppins.variable}`}>
+      <body className={`${openSans.className} ${openSans.variable}`}>
         <GlobalCssPriority>
           <main className='flex'>
             <Sidebar />{' '}
