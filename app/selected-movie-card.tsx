@@ -18,7 +18,7 @@ export default function SelectedMovieCard() {
         exit={{ height: 0 }}
         transition={{ type: 'keyframes' }}
         className={cn(
-          'flex col-span-full bg-secondary rounded-xl overflow-clip',
+          'flex self-start col-span-full bg-secondary rounded-xl overflow-clip',
           `row-start-${Math.ceil(selectedMovie?.index! / 5)}`
         )}
       >
