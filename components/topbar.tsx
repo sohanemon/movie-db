@@ -1,12 +1,11 @@
 'use client';
-import { ReactSVG } from 'react-svg';
-import { MoreVertical, Sun, X } from 'lucide-react';
 import useSearchStore from '@/lib/store/search-store';
 import { AnimatePresence, motion } from 'framer-motion';
-import { serialize } from 'v8';
+import { MoreVertical, Sun, X } from 'lucide-react';
+import { ReactSVG } from 'react-svg';
 
 export default function TopBar() {
-  const { searching, setSearching } = useSearchStore();
+  const { searching, setSearching, setSearchingParam } = useSearchStore();
   return (
     <section className='flex mb-12'>
       <div className='flex grow'>
@@ -26,6 +25,7 @@ export default function TopBar() {
                 height={24}
               />
               <input
+                onChange={(e) => setSearchingParam(e.target.value)}
                 type='text'
                 className='pl-3 h-14 grow'
                 placeholder='search'
