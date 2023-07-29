@@ -1,20 +1,27 @@
 'use client';
 
 import useMovieStore from '@/lib/store/movie-store';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import MovieCard from './movie-card';
 import useSearchStore from '@/lib/store/search-store';
+import SelectedMovieCard from './selected-movie-card';
 
 export default function Home() {
-  const { getMovies, movies } = useMovieStore();
+  const { getMovies, movies, selectedMovie } = useMovieStore();
   const { searchingParam } = useSearchStore();
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getMovies();
   }, [getMovies]);
 
   return (
-    <section className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
+    <section
+      ref={gridRef}
+      className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
+    >
+      {selectedMovie && <SelectedMovieCard />}
+
       {(searchingParam
         ? movies.filter((movie) =>
             movie.Title.toLowerCase().includes(searchingParam.toLowerCase())

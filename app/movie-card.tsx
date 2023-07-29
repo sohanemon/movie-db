@@ -1,10 +1,17 @@
+'use client';
 import { Movie } from '@/global.types';
+import useMovieStore from '@/lib/store/movie-store';
 import { PlayCircle, PlusCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export default function MovieCard(props: Movie) {
+  const { setSelectedMovie } = useMovieStore();
   return (
-    <div className='p-3 bg-secondary rounded-xl'>
+    <div
+      role='button'
+      onClick={() => setSelectedMovie(props)}
+      className='p-3 bg-secondary rounded-xl'
+    >
       <Image
         src={props.Poster}
         alt=''

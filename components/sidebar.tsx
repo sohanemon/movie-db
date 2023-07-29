@@ -4,7 +4,7 @@ import User from './user';
 
 export default function Sidebar() {
   return (
-    <aside className='w-64 h-full min-h-screen bg-primary'>
+    <aside className='sticky top-0 min-w-[250px] h-full min-h-screen bg-primary'>
       <User />
       <Separator />
       <div className='p-5 space-y-5'>
