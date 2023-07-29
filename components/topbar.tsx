@@ -8,7 +8,7 @@ import { serialize } from 'v8';
 export default function TopBar() {
   const { searching, setSearching } = useSearchStore();
   return (
-    <section className='flex'>
+    <section className='flex mb-12'>
       <div className='flex grow'>
         <AnimatePresence>
           {searching && (
@@ -49,9 +49,9 @@ export default function TopBar() {
           )}
         </AnimatePresence>
       </div>
-      <div className='flex items-center'>
-        <Sun />
-        <MoreVertical />
+      <div className='flex items-center gap-2'>
+        <Sun role='button' />
+        <MoreVertical role='button' />
       </div>
     </section>
   );

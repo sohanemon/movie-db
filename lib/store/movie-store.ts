@@ -1,13 +1,14 @@
+import { Movie } from '@/global.types';
 import { create } from 'zustand';
 
 interface MovieStoreType {
-  movies: [];
-  setMovies: (movies: []) => void;
+  movies: Movie[];
+  getMovies: () => void;
 }
 
 const useMovieStore = create<MovieStoreType>()((set) => ({
   movies: [],
-  async setMovies() {
+  async getMovies() {
     fetch('/assets/data.json')
       .then((res) => res.json())
       .then((data) => set({ movies: data }));
