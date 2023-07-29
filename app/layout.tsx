@@ -1,4 +1,5 @@
-
+import Sidebar from '@/components/sidebar';
+import GlobalCssPriority from '../context/global-css-priority';
 import './globals.css';
 import { Poppins } from 'next/font/google';
 
@@ -20,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${poppins.className} ${poppins.variable}`}>
-        {children}
+        <GlobalCssPriority>
+          <main className='flex'>
+            <Sidebar /> <div className='grow'> {children}</div>
+          </main>
+        </GlobalCssPriority>
       </body>
     </html>
   );
