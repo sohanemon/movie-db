@@ -15,8 +15,8 @@ export default function TopBar() {
               key={'search'}
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: '40%', opacity: 1 }}
-              transition={{ damping: 10 }}
-              exit={{ width: 0, opacity: 0 }}
+              transition={{ type: 'just' }}
+              exit={{ width: 0 }}
               className='flex items-center  rounded-lg px-3.5 bg-primary'
             >
               <ReactSVG

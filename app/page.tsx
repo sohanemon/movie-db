@@ -7,7 +7,7 @@ import useSearchStore from '@/lib/store/search-store';
 import SelectedMovieCard from './selected-movie-card';
 
 export default function Home() {
-  const { getMovies, movies, selectedMovie } = useMovieStore();
+  const { getMovies, movies } = useMovieStore();
   const { searchingParam } = useSearchStore();
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -20,15 +20,15 @@ export default function Home() {
       ref={gridRef}
       className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
     >
-      {selectedMovie && <SelectedMovieCard />}
+      <SelectedMovieCard />
 
       {(searchingParam
         ? movies.filter((movie) =>
             movie.Title.toLowerCase().includes(searchingParam.toLowerCase())
           )
         : movies
-      ).map((_) => (
-        <MovieCard key={_.Title} {..._} />
+      ).map((_, idx) => (
+        <MovieCard key={_.Title} {..._} index={idx + 1} />
       ))}
     </section>
   );

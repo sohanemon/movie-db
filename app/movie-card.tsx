@@ -1,16 +1,19 @@
 'use client';
 import { Movie } from '@/global.types';
 import useMovieStore from '@/lib/store/movie-store';
+import { cn } from '@/lib/utils';
 import { PlayCircle, PlusCircle } from 'lucide-react';
 import Image from 'next/image';
 
 export default function MovieCard(props: Movie) {
-  const { setSelectedMovie } = useMovieStore();
+  const { setSelectedMovie, selectedMovie } = useMovieStore();
   return (
     <div
       role='button'
       onClick={() => setSelectedMovie(props)}
-      className='p-3 bg-secondary rounded-xl'
+      className={cn('p-3 ring-accent bg-secondary rounded-xl', {
+        'ring-2': selectedMovie?.index! === props.index!,
+      })}
     >
       <Image
         src={props.Poster}
