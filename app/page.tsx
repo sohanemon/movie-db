@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 import MovieCard from './movie-card';
 import useSearchStore from '@/lib/store/search-store';
 import SelectedMovieCard from './selected-movie-card';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   const { getMovies, movies } = useMovieStore();
@@ -20,7 +21,9 @@ export default function Home() {
       ref={gridRef}
       className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
     >
-      <SelectedMovieCard />
+      <AnimatePresence>
+        <SelectedMovieCard />
+      </AnimatePresence>
       {(searchingParam
         ? movies.filter((movie) =>
             movie.Title.toLowerCase().includes(searchingParam.toLowerCase())
