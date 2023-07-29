@@ -2,6 +2,7 @@ import Sidebar from '@/components/sidebar';
 import GlobalCssPriority from '../context/global-css-priority';
 import './globals.css';
 import { Poppins } from 'next/font/google';
+import TopBar from '@/components/topbar';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -23,7 +24,11 @@ export default function RootLayout({
       <body className={`${poppins.className} ${poppins.variable}`}>
         <GlobalCssPriority>
           <main className='flex'>
-            <Sidebar /> <div className='grow'> {children}</div>
+            <Sidebar />{' '}
+            <div className='grow'>
+              <TopBar />
+              {children}
+            </div>
           </main>
         </GlobalCssPriority>
       </body>
