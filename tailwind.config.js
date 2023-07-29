@@ -2,6 +2,7 @@
 module.exports = {
   darkMode: ['class'],
   content: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
+  safelist: ['row-start-1 row-start-2 row-start-3'],
   theme: {
     container: {
       center: true,
