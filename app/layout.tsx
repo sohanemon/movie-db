@@ -25,7 +25,7 @@ export default function RootLayout({
         <GlobalCssPriority>
           <main className='flex'>
             <Sidebar />{' '}
-            <div className='grow'>
+            <div className='p-4 grow md:p-8 lg:p-11'>
               <TopBar />
               {children}
             </div>
