@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: 'Next | SohanEmon',
+  title: 'Movies',
 };
 
 export default function RootLayout({
