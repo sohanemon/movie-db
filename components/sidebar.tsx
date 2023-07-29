@@ -7,9 +7,23 @@ export default function Sidebar() {
     <aside className='w-64 h-full min-h-screen bg-primary'>
       <User />
       <Separator />
-      {data.map((_) => (
-        <Tab key={_} label={_} />
-      ))}
+      <div className='p-5 space-y-5'>
+        {data.slice(0, 5).map((_, idx) => (
+          <Tab key={_} label={_} active={!idx} />
+        ))}
+      </div>
+      <Separator />
+      <div className='p-5 space-y-5'>
+        {data.slice(5, 7).map((_, idx) => (
+          <Tab key={_} label={_} />
+        ))}
+      </div>
+      <Separator />
+      <div className='p-5 space-y-5'>
+        {data.slice(7).map((_, idx) => (
+          <Tab key={_} label={_} />
+        ))}
+      </div>
     </aside>
   );
 }
