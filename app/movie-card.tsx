@@ -4,12 +4,14 @@ import useMovieStore from '@/lib/store/movie-store';
 import { cn } from '@/lib/utils';
 import { PlayCircle, PlusCircle } from 'lucide-react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function MovieCard(props: Movie) {
   const { setSelectedMovie, selectedMovie } = useMovieStore();
+  // const { push } = useRouter();
   function handleSelect() {
     setSelectedMovie(props);
-    window;
+    // push('#selectedMovie');
   }
 
   return (

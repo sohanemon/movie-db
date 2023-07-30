@@ -10,18 +10,16 @@ import { AnimatePresence } from 'framer-motion';
 export default function Home() {
   const { getMovies, movies } = useMovieStore();
   const { searchingParam } = useSearchStore();
-  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // fetching the movies to global store
     getMovies();
   }, [getMovies]);
 
   return (
-    <section
-      ref={gridRef}
-      className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'
-    >
+    <section className='grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
       <SelectedMovieCard />
+      {/* if there any searchingParam, show only filtered result */}
       {(searchingParam
         ? movies.filter((movie) =>
             movie.Title.toLowerCase().includes(searchingParam.toLowerCase())
