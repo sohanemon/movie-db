@@ -7,10 +7,15 @@ import Image from 'next/image';
 
 export default function MovieCard(props: Movie) {
   const { setSelectedMovie, selectedMovie } = useMovieStore();
+  function handleSelect() {
+    setSelectedMovie(props);
+    window;
+  }
+
   return (
     <div
       role='button'
-      onClick={() => setSelectedMovie(props)}
+      onClick={handleSelect}
       className={cn('p-3 ring-accent bg-secondary rounded-xl', {
         'ring-2': selectedMovie?.index! === props.index!,
       })}
